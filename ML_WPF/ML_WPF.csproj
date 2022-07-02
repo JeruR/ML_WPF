@@ -1,0 +1,97 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="MLModel2.consumption.cs" />
+    <Compile Remove="MLModel2.training.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="File\dane.csv" />
+    <None Remove="File\dane_a.csv" />
+    <None Remove="File\dane_h.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="File\dane.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="File\dane_a.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="File\dane_h.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="27.2.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.6" />
+    <PackageReference Include="Microsoft.ML" Version="1.7.1" />
+    <PackageReference Include="Microsoft.ML.FastTree" Version="1.7.1" />
+    <PackageReference Include="Microsoft.ML.LightGbm" Version="1.7.1" />
+  </ItemGroup>
+  <ItemGroup Label="MLModel1">
+    <None Include="MLModel1.consumption.cs">
+      <DependentUpon>MLModel1.mbconfig</DependentUpon>
+    </None>
+    <None Include="MLModel1.training.cs">
+      <DependentUpon>MLModel1.mbconfig</DependentUpon>
+    </None>
+    <None Include="MLModel1.zip">
+      <DependentUpon>MLModel1.mbconfig</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="MLModel2.consumption.cs">
+      <DependentUpon>MLModel2.mbconfig</DependentUpon>
+    </None>
+    <None Include="MLModel2.training.cs">
+      <DependentUpon>MLModel2.mbconfig</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup Label="MLModel_4_A">
+    <None Include="MLModel_4_A.consumption.cs">
+      <DependentUpon>MLModel_4_A.mbconfig</DependentUpon>
+    </None>
+    <None Include="MLModel_4_A.training.cs">
+      <DependentUpon>MLModel_4_A.mbconfig</DependentUpon>
+    </None>
+    <None Include="MLModel_4_A.zip">
+      <DependentUpon>MLModel_4_A.mbconfig</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\API_for_footbal\API_for_footbal.csproj" />
+    <ProjectReference Include="..\footbal_predict\footbal_predict.csproj" />
+    <ProjectReference Include="..\MLModel2_ConsoleApp2\MLModel2_ConsoleApp2.csproj" />
+    <ProjectReference Include="..\MLModel_3_H_ConsoleApp2\MLModel_3_H_ConsoleApp2.csproj" />
+    <ProjectReference Include="..\MLModel_3_H_ConsoleApp3\MLModel_3_H_ConsoleApp3.csproj" />
+    <ProjectReference Include="..\Model5_ConsoleApp1\Model5_ConsoleApp1.csproj" />
+  </ItemGroup>
+  <ItemGroup Label="MLModel_3_H">
+    <None Include="MLModel_3_H.consumption.cs">
+      <DependentUpon>MLModel_3_H.mbconfig</DependentUpon>
+    </None>
+    <None Include="MLModel_3_H.training.cs">
+      <DependentUpon>MLModel_3_H.mbconfig</DependentUpon>
+    </None>
+    <None Include="MLModel_3_H.zip">
+      <DependentUpon>MLModel_3_H.mbconfig</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup Label="Model5">
+    <None Include="Model5.consumption.cs">
+      <DependentUpon>Model5.mbconfig</DependentUpon>
+    </None>
+    <None Include="Model5.training.cs">
+      <DependentUpon>Model5.mbconfig</DependentUpon>
+    </None>
+    <None Include="Model5.zip">
+      <DependentUpon>Model5.mbconfig</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
